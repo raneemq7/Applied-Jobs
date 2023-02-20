@@ -57,9 +57,11 @@
                             <div class="slds-grid slds-grid_vertical">
                                 <div class="slds-col">
                                     <div class="mybtn slds-grid slds-align_absolute-center">
+                                        <a href="https://healthcarepilot.my.site.com/candidate/s/job-detail-page">
                                         <button class="slds-col slds-button slds-button_brand btnCustomStyle"
                                             style="background-color: rgb(1, 145, 97) ; color: aliceblue;"
-                                            onclick={applyToJob}>View Application</button>
+                                            >View Application</button>
+                                        </a>
                                     </div>
                                 </div>
                                 <br/>
@@ -222,5 +224,44 @@
                 </div>
             </div>
         </div>
+
+        <template if:true={isModalOpen}>
+            <!-- Modal/Popup Box LWC starts here -->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box LWC header here -->
+                    <header class="slds-modal__header">
+                        <button
+                            class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close"
+                                variant="inverse" size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                            Request Info</h2>
+                    </header>
+                    <!-- Modal/Popup Box LWC body starts here -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <p><b>Please enter your message for me below.</b></p>
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <textarea id="textarea-id-01" placeholder="Placeholder text…"
+                                    class="slds-textarea"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal/Popup Box LWC footer starts here -->
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick={closeModal}
+                            title="Cancel">Cancel</button>
+                        <button class="slds-button slds-button_brand" onclick={submitDetails}
+                            title="OK">OK</button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
     </lightning-card>
 </template>
